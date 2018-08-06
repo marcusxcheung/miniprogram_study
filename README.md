@@ -130,14 +130,152 @@ WXSS样式文件
   (8) circular / 采用衔接滑动
   (9) veritical / 滑动方向是否为纵向
   (10) Bindchange / current改变时触发的事件
- 4. icon
+  
+ 基础内容组件
+ 1. icon
     属性 
     (1) type: success, success_no_circle, info, warn, waiting, cancel, download, search, clear
     (2) size
     (3) color
- 5. text组件
+ 2. text组件
     默认文本在同一行 支持转义字符 换行 空格等
     属性
     (1) selectable / 文本是否可选
     (2) space / 显示连续空格 false&ture / ensp, emsp, nbsp
     (3) decode / 对文本解码
+ 3. Progress组件
+    (1) percent / 进度的百分比
+    (2) show-info / 显示百分比
+    (3) stroke-width / 进度条的宽度
+    (4) color 
+    (5) activeColor 
+    (6) backgroundColor / 未选择的颜色
+    (7) active 有无动画
+    (8) active-mode / 动画的播放模式 / backwards & forwards
+ 
+ 表单组件
+ 1. button
+    (1) size
+    (2) type / primary default warn
+    (3) plain / 是否镂空
+    (4) disabled
+    (5) loading
+    (6) form-type / submit & reset
+    (7) open-type / contact & share & getUserInfo & getPhoneNumber
+    (8) hover-class
+    (9) hover-step-propagation
+    (10) hover-start-time
+    (11) hover-stay-time
+    (12) bindgetuserinfo / handler属性 返回用户信息 等同wx.getUserInfo
+ 2. checkbox
+    (1) checkbox-group / 多项选择 / bindchange 触发change事件
+    (2) 有四个属性
+      - value
+      - disabled
+      - checked
+      - color
+    (3) e.detail.value
+ 3. radio
+    (1) radio-group / 单项选择 / bindchange 触发change事件
+    (2) 属性
+      - value
+      - disabled
+      - checked
+      - color
+    (3) e.detail.value
+ 4. input 
+    (1) value / 初始内容
+    (2) type / text & number & idcard & digit (带小数点)
+    (3) password
+    (4) placeholder
+    (5) placeholder-style
+    (6) placeholder-class
+    (7) disabled
+    (8) maxlength
+    (9) auto-focus
+    (10) focus
+    (11) confirm-type / 右下角文字 / send & search & next & go & done
+    (12) confirm-hold
+    (13) bindinput 
+    (14) bindfocus
+    (15) bindblur
+    (16) bindconfirm
+  5. textarea
+    (1) value / 初始内容
+    (2) placeholder
+    (3) placeholder-style
+    (4) placeholder-class
+    (5) disabled
+    (6) maxlength
+    (7) auto-focus
+    (8) focus
+    (9) auto-height
+    (10) show-confirm-bar
+    (11) bindfocus
+    (12) bindblur
+    (13) bindlinechange
+    (14) bindinput
+    (15) bindconfirm
+  6. label
+    只有一个属性 for / 绑定控件
+  7. picker
+    (1) 普通选择器 / mode = selector
+      - range
+      - range-key
+      - value
+      - bindchange
+      - disabled
+    (2) 多项选择器 / mode = multiSelector
+      - range / 多维数组
+      - range-key
+      - value
+      - bindchange
+      - disabled
+    (3) 时间选择器 / mode = time
+      - value
+      - start
+      - end
+      - bindchange
+      - disabled
+    (4) 日期选择器 / mode = date
+      - value 
+      - start
+      - end
+      - fields
+      - bindchange
+      - disabled
+    (5) 省市区选择器 / mode = region
+      - value
+      - custom-item
+      - bindchange
+      - disabled
+  8. picker-view
+    (1) picker-view
+      - value
+      - indicator-style / 选中框
+      - indicator-class
+      - mask-style
+      - mask-class
+      - bindchange
+    (2) pick-view-column
+  9. slider
+    (1) min
+    (2) max
+    (3) step
+    (4) disabled
+    (5) value
+    (6) color
+    (7) bindchange
+  10. switch
+    (1) checked
+    (2) type
+    (3) bindchange
+    (4) color
+  11. form
+    (1) report-submit
+    (2) bindsubmit
+    (3) bindreset
+
+导航组件
+1. navigator 组件
+  (1)
