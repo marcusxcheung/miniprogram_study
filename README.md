@@ -72,4 +72,72 @@ WXML页面文件 (WeiXin Markup Language)
   (2) import 只能单向
   (3) include 整个代码代入
   
-20课
+app.js
+1. onLaunch / 小程序初始化完成后 会触发并只会触发一次
+2. onShow / 启动 或者 后台切换到前台 则会触发
+3. onHide / 前台切换到后台 则会触发
+
+页面.js
+1. 初始化数据 / data属性
+2. 生命周期函数
+  (1) onLoad / 加载完调用该函数
+  (2) onShow / 显示时调用该函数
+  (3) onReady / 初次渲染完成调用该函数
+  (4) onHide / 隐藏时调用该函数
+  (5) onUnload / 卸载时调用该函数
+  (6) onPullDownRefresh / 下拉刷新时调用该函数
+3. 事件处理函数
+4. 使用setData修改初始化数据
+  - this 代表本页面 
+
+WXSS样式文件 
+1. id选择器
+2. class选择器
+3. 新的尺寸单位 rpx
+  - 规定屏幕宽为750rpx
+4. 外联样式 @import
+
+组件
+- 封装了HTML5的元素
+
+视图容器
+1. view
+  (1) hover-class / String / 指定按下去的样式类
+  (2) hover-stop-propagation / Boolean / 是否阻止本节点的祖先节点出现点击态
+  (3) hover-start-time / Number / 按住多久出现点击态
+  (4) hover-stay-time / Number / 手指松开后点击态保留时间
+2. scroll-view
+  (1) scroll-x 
+  (2) scroll-y  
+  (3) upper-threshold / 距离顶部/左边多远 触发事件
+  (4) lower-threshold / 距离底部/右边多远 触发事件
+  (5) scroll-top / 设置竖向滚动条的位置
+  (6) scroll-left / 横向滚动条的位置
+  (7) scroll-into-view / 设置哪个方向可滚动
+  (8) scroll-with-animation
+  (9) enable-back-to-top / 手机点击顶部 触发事件
+  (10) bindscrolltoupper / 滚动到底部/左边 触发事件
+  (11) bindscrolltolower / 滚动到底部/右边 触发事件
+  (12) bindscroll / Eventhandler 类型
+ 3. swiper
+  (1) indicator-dots / 是否显示面板指示点
+  (2) indicatior-color / 设置指示点的颜色
+  (3) indicator-active-color / 当前选中的知识点颜色
+  (4) autoplay / 是否自动切换
+  (5) currect / 当前所在页面的index索引
+  (6) interval / 自动切换时间间隔
+  (7) duration / 滑动动画的时长
+  (8) circular / 采用衔接滑动
+  (9) veritical / 滑动方向是否为纵向
+  (10) Bindchange / current改变时触发的事件
+ 4. icon
+    属性 
+    (1) type: success, success_no_circle, info, warn, waiting, cancel, download, search, clear
+    (2) size
+    (3) color
+ 5. text组件
+    默认文本在同一行 支持转义字符 换行 空格等
+    属性
+    (1) selectable / 文本是否可选
+    (2) space / 显示连续空格 false&ture / ensp, emsp, nbsp
+    (3) decode / 对文本解码
