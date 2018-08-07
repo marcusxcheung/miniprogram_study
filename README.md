@@ -278,4 +278,274 @@ WXSS样式文件
 
 导航组件
 1. navigator 组件
-  (1)
+  (1) url / 应用内页面跳转
+  (2) open-type / 页面跳转方式
+    - navigator(wx.navigateTo) / 保留当前页面 左上角返回当前页
+    - redirect(wx.redirectTo) / 关闭当前页
+    - switchTab(wx.switchTab) / 跳转到app.json的tabBar 页面
+    - reLaunch(wx.reLaunch） / 关闭所有页面 打开某个页面
+    - navigateBack(wx.navigateBack) / 返回上一级页面 (由delta决定)
+  (3) deltra / 当open-type为navigateBack有效时 表示回退的层数
+  (4) hover-class / 点击时的样式类
+  (5) hover-stop-propagation 
+  (6) hover-start-time
+  (7) hover-stay-time
+
+媒体组件
+1. audio
+  (1) id
+  (2) src
+  (3) loop
+  (4) controls
+  (5) poster
+  (6) name
+  (7) author
+2. image
+  (1) src 
+  (2) mode
+    - scaleToFill / 拉伸
+    - aspectFit / 长边显示
+    - widthFix / 宽度不变 高度自动变化
+  (3) binderror
+  (4) bindload
+3. video
+  (1) src
+  (2) initial-time
+  (3）duration
+  (4) controls
+  (5) danmu-list
+  (6) danmu-btn
+  (7) enable-danmu
+  (8) autoplay
+  (9) loop
+  (10) muted
+  (11) page-gesture
+  (12) direction
+  (13) bindplay
+  (14) bindpause
+  (15) bindended
+  (16) bindtimeupdate
+  (17) bindfullscreenchange
+  (18) objectFit / contain & fill & cover
+  (19) poster
+  
+地图组件
+1. map组件
+  (1) longtitude
+  (2) latitude
+  (3) scale
+  (4) markers
+    - id
+    - latitude
+    - longtitude
+    - title
+    - iconPath
+    - rotate
+    - alpha / 透明度
+    - width
+    - height
+    - callout
+      * content
+      * color
+      * fontSize
+      * borderRadius
+      * bgClor
+      * padding
+      * display
+      * textAlign
+    - label
+    - anchor
+  (5) polyline
+  (6) circles
+  (7) controls
+  (8) include-points / 缩放视野包含所有坐标点
+  (9) show-location / 带有方向的当前定位点
+  (10) bindmarkertap
+  (11) bindcontroltap
+  (12) bindregionchange
+  (13) bindtap
+  (14) bindupdated
+  
+ 画布组件
+ 1. canvas组件
+  默认宽度300px 高度225px
+  (1) canvas-id
+  (2) disable-scroll
+  (3) bindtouchstart
+  (4) bindtouchmove
+  (5) bindtouchend
+  (6) bindtouchcancel
+  (7) bindlongtap
+  (8) binderror
+  
+ 客服会话组件
+ 1. contact-button
+  (1) size
+  (2) type / default-dark & default-light
+  (3) session-from
+  
+小程序API介绍
+以wx.on开头
+1. 网络接口
+  (1) wx.request
+  (2) wx.uploadFile
+    - url
+    - filePath
+    - name 
+    - header
+    - formData
+    - success
+    - fail
+    - complete
+    - uploadTask
+      * onProgressUpdate / 监听上传进度的变化
+      * 中断上传任务
+  (3) wx.downloadFile
+    - url
+    - header
+    - success
+    - fail
+    - complete
+    - downTask
+     * onProgressUpdate
+     * abort
+  (4) wx.connectSocket
+    - url
+    - header
+    - method / OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    - protocols
+    - success
+    - fail
+    - complete
+  (5) wx.onSocketOpen / 监听是否打开
+  (6) wx.onSocketError / 监听是否出错
+  (7) wx.sendSocketMessage
+    - data / 需要发送的内容
+    - success
+    - fail
+    - complete
+  (8) wx.onSocketMessage / 监听接收到副武器的消息事件
+    - data / 服务器返回的信息
+  (9) wx.closeSocket
+    - code
+    - reason
+    - success
+    - fail
+    - complete
+  (10) wx.onSocketClose
+  
+  -  可关联腾讯云
+2. 媒体接口
+  (1) wx.chooseImage(OBJECT)
+  - count / 最多图片张数
+  - sizeType / original & compressed
+  - sourceType / album & camera
+  - success
+  - fail
+  - complete
+  (2) wx.previewImage(OBJECT)
+    - current / 当前链接
+    - urls / 需要预览的链接列表
+    - success
+    - fail
+    - complete
+  (3) wx.getImageInfo(OBJECT)
+    - src 
+    - success
+    - fail
+    - complete
+  (4) wx.saveImageToPhotosAlbum(OBJECT)
+    - filePath
+    - success
+    - fail
+    - complete
+  (5) wx.startRecord(OBJECT)
+    - success
+    - fail
+    - complete
+  (6) wx.stopRecord()
+  (7) wx.playVoice(OBEJCT)
+    - filePath
+    - duration
+    - success
+    - fail
+    - complete
+  (8) wx.pauseVoice()
+  (9) wx.stopVoice()
+  (10) wx.creatAudioContext(audioId, this)
+    - setSrc
+    - play
+    - pause
+    - seek
+  (11) wx.chooseVideo(OBJECT)
+    - sourceType / album & camera
+    - compressed / 是否压缩
+    - maxDuration
+    - camera / front & back 摄像头
+    - success
+      * tempFilePath
+      * size
+      * duration
+      * height
+      * width
+    - fail
+    - complete
+  (12) wx.saveVideoToPhotosAlbum(OBEJCT)
+    - filePath
+    - success
+    - fail
+    - complete
+  (13) wx.createVideoContext(videoId, this)
+    - play
+    - pause
+    - seek
+    - sendDanmu
+    - playbackRate
+    - requestFullScreen
+    - exitFullScreen
+  (14) wx.createCameraContext(this)
+    - takePhoto
+      * quality / high normal low
+      * success / res={tempImagePath}
+      * fail
+      * complete
+    - startRecord
+      * timeoutCallback
+      * success
+      * fail
+      * complete
+    - stopRecord
+      * success
+      * fail
+      * complete
+3. 文件接口
+    (1) wx.saveFile(OBJECT)
+      - tempFilePath
+      - success / res={savedFilePath:'保存路径'}
+      - fail
+      - complete
+    (2) wx.getFileInfo
+      - filePath
+      - digestAlgorithm
+      - success
+        * size
+        * digest
+        * errMsg
+      - fail
+      - complete
+    (3) wx.getSavedFileList / 返回保存的文件列表
+      - success 
+        * errMsg
+        * fileList
+      - fail
+      - complete
+        
+4. 数据缓存接口
+5. 位置接口
+6. 设备接口
+7. 界面接口
+8. WXML节点信息
+9. 第三方平台接口
+10. 开放接口
+11. 数据接口
+12. 调试接口
